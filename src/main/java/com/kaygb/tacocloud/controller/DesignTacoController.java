@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -33,16 +34,19 @@ public class DesignTacoController {
                 new Ingredient("SRCR", "Sour Cream", Ingredient.Type.SAUCE)
         );
         Ingredient.Type[] types = Ingredient.Type.values();
+
         for (Ingredient.Type type : types) {
+            System.out.println(filterByType(ingredients, type));
             model.addAttribute(type.toString().toLowerCase(),filterByType(ingredients, type));
         }
 
         model.addAttribute("design", new Taco());
-        model.addAttribute("123","132");
+        model.addAttribute("name","thymeleaf");
         return "design";
     }
 
     private List<Ingredient> filterByType(List<Ingredient> ingredients, Ingredient.Type type) {
         return ingredients.stream().filter(x -> x.getType().equals(type)).collect(Collectors.toList());
     }
+
 }
