@@ -38,11 +38,12 @@ public class DesignTacoController {
 
         for (Ingredient.Type type : types) {
             System.out.println(filterByType(ingredients, type));
-            model.addAttribute(type.toString().toLowerCase(),filterByType(ingredients, type));
+            model.addAttribute(type.toString().toLowerCase(Locale.ROOT),filterByType(ingredients, type));
         }
 
         model.addAttribute("design", new Taco());
         model.addAttribute("name","thymeleaf");
+        // 这里的值好像没有传过去
         return "design";
     }
 

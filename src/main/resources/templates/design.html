@@ -1,32 +1,11 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>DESIGN - TacoCloud</title>
-    <style>
-
-        .main{
-            max-width: 800px;
-            margin: 0 auto;
-            display: grid;
-        }
-        .ingredient-group{
-            /*max-width: 360px;*/
-
-            margin: 0;
-            padding: 20px;
-        }
-
-    </style>
-</head>
-<body class="main">
+[(~{head})]
   <h1>Design your taco!</h1>
-  <img th:src="@{/images/brand.png}"/>
+
   <form method="POST" th:object="${design}">
       <div class="wrap">
           <div class="ingredient-group" id="wraps">
               <h3>Designate your wrap:</h3>
-              <div th:each="ingredient : ${wrap}">
+              <div th:each="ingredient : ${WRAP}">
                   <input name="ingredients" type="checkbox" th:value="${ingredient.id}"
                   />
                   <span th:text="${ingredient.name}">INGREDIENT</span><br/>
@@ -73,6 +52,4 @@
       </div>
 
   </form>
-<!--<span th:text="${name}"></span>-->
-</body>
-</html>
+[(~{footer})]

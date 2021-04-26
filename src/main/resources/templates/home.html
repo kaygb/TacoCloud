@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>TacoCloud</title>
-</head>
-<body>
-  <h1>Welcome to TacoCloud.</h1>
-<img src="" th:src="@{/images/brand.png}">
-</body>
-</html>
+[(~{head})]
+    <h1>Welcome to TacoCloud.</h1>
+    <a th:href="@{/design}" >Design a Taco.</a>
+[(~{footer})]
